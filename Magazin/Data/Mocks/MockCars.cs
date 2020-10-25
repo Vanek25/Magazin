@@ -48,6 +48,8 @@ namespace Magazin.Data.Mocks
 
                 };
             }
+
+            
         }
         public IEnumerable<Car> getFavCars { get ; set ; }
        
