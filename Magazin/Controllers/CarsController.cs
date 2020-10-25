@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Magazin.Data.Interfaces;
+using Magazin.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Magazin.Controllers
@@ -20,8 +21,11 @@ namespace Magazin.Controllers
 
         public ViewResult List()
         {
-            var cars = _allCars.Cars;
-            return View(cars);
+            ViewBag.Title = "Страница с автомобилями";
+            CarsListViewModel obj = new CarsListViewModel();
+            obj.allCars = _allCars.Cars;
+            obj.currCategory = "Автомобили";
+            return View(obj);
         }
     }
 }

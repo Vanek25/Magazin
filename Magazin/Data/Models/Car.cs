@@ -12,7 +12,7 @@ namespace Magazin.Data.Models
         public string shortDesc { set; get; }
         public string longDesc { set; get; }
         public string img { set; get; }
-        public ushort price { set; get; }//отрицательной не может быть, приставка 'u'
+        public int price { set; get; }//отрицательной не может быть, приставка 'u'
         public bool isFavourite { set; get; }
         public bool available { set; get; }
         public int categoryID { set; get; }

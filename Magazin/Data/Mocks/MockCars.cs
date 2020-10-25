@@ -18,8 +18,8 @@ namespace Magazin.Data.Mocks
                         name = "Tesla Model X", 
                         shortDesc = "Быстрая машина", 
                         longDesc="Современный минималистический дизайн, подкрепленный автопилотом", 
-                        img = "https://blog-johnchow.netdna-ssl.com/wp-content/uploads/2016/05/26828419540_f1587ebb7a_o.jpg",
-                        price = 50000, 
+                        img = "/img/tesla.jpg",
+                        price = 15000000, 
                         isFavourite = true,
                         available = true, 
                         Category = _categoryCars.AllCategories.First()
@@ -28,8 +28,8 @@ namespace Magazin.Data.Mocks
                         name = "Volkswagen Golf R",
                         shortDesc = "Спортивная мащина",
                         longDesc = "Удобный, городской автомобиль со спортивными нотками",
-                        img = "https://a.d-cd.net/b158e55s-1920.jpg",
-                        price = 30000,
+                        img = "/img/vw.jpg",
+                        price = 4000000,
                         isFavourite = true,
                         available = true,
                         Category = _categoryCars.AllCategories.Last()
@@ -38,8 +38,8 @@ namespace Magazin.Data.Mocks
                         name = "Mercedes Vito",
                         shortDesc = "Семейный автомобиль",
                         longDesc = "Большой и комфортабельный автомобиль для всей семьи ",
-                        img = "https://s.auto.drom.ru/i24200/pubs/4/45717/2183198.jpg",
-                        price = 45000,
+                        img = "/img/mercedes.jpg",
+                        price = 8000000,
                         isFavourite = false,
                         available = true,
                         Category = _categoryCars.AllCategories.Last()
