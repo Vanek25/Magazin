@@ -14,6 +14,7 @@ using Microsoft.Extensions.Configuration;
 using Magazin.Data;
 using Microsoft.EntityFrameworkCore;
 using Magazin.Data.Repository;
+using Magazin.Data.Models;
 
 namespace Magazin
 {
@@ -34,7 +35,13 @@ namespace Magazin
             services.AddDbContext<AppDBContent>(options => options.UseSqlServer(confSting.GetConnectionString("DefaultConnection")));
             services.AddTransient<IAllCars, CarRepository>();
             services.AddTransient<ICarsCategory, CategoryRepository>();
+            services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+            services.AddScoped(sp => ShopCart.GetCart(sp));
+
+
             services.AddMvc(option => option.EnableEndpointRouting = false);
+            services.AddMemoryCache();
+            services.AddSession();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -43,7 +50,9 @@ namespace Magazin
             app.UseDeveloperExceptionPage();
             app.UseStatusCodePages();//404, 500
             app.UseStaticFiles();//css и всякие файлы
+            app.UseSession();
             app.UseMvcWithDefaultRoute();//отслеживание URL адреса
+
 
             using (var scope = app.ApplicationServices.CreateScope())
             {

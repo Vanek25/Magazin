@@ -26,7 +26,7 @@ namespace Magazin.Data.Mocks
                     },
                     new Car {
                         name = "Volkswagen Golf R",
-                        shortDesc = "Спортивная мащина",
+                        shortDesc = "Спортивная машина",
                         longDesc = "Удобный, городской автомобиль со спортивными нотками",
                         img = "/img/vw.jpg",
                         price = 4000000,

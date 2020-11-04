@@ -4,14 +4,16 @@ using Magazin.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Magazin.Migrations
 {
     [DbContext(typeof(AppDBContent))]
-    partial class AppDBContentModelSnapshot : ModelSnapshot
+    [Migration("20201104072310_ShopCar")]
+    partial class ShopCar
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -75,14 +77,14 @@ namespace Magazin.Migrations
                     b.ToTable("Category");
                 });
 
-            modelBuilder.Entity("Magazin.Data.Models.ShopCartItem", b =>
+            modelBuilder.Entity("Magazin.Data.Models.ShopCarItem", b =>
                 {
                     b.Property<int>("id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("ShopCartId")
+                    b.Property<string>("ShopCarId")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int?>("carid")
@@ -107,7 +109,7 @@ namespace Magazin.Migrations
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("Magazin.Data.Models.ShopCartItem", b =>
+            modelBuilder.Entity("Magazin.Data.Models.ShopCarItem", b =>
                 {
                     b.HasOne("Magazin.Data.Models.Car", "car")
                         .WithMany()
