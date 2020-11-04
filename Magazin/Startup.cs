@@ -51,8 +51,11 @@ namespace Magazin
             app.UseStatusCodePages();//404, 500
             app.UseStaticFiles();//css и всякие файлы
             app.UseSession();
-            app.UseMvcWithDefaultRoute();//отслеживание URL адреса
-
+            //app.UseMvcWithDefaultRoute();//отслеживание URL адреса
+            app.UseMvc(routes => {
+                routes.MapRoute(name: "default", template: "{controller=Home}/{action=Index}/{id?}");
+                routes.MapRoute(name: "categoryFilter", template: "Car/{action}/{category?}", defaults: new { Controller = "Car", action = "List" });
+            });
 
             using (var scope = app.ApplicationServices.CreateScope())
             {
